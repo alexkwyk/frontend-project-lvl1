@@ -3,3 +3,6 @@
 
 ### CodeClimate Maintainability:
 [![Maintainability](https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/maintainability)](https://codeclimate.com/github/codeclimate/codeclimate/maintainability)
+
+### ESlint status:
+![lint](https://github.com/alexkwyk/frontend-project-lvl1/tree/main/.github/workflows/lint.yml/badge.svg)
