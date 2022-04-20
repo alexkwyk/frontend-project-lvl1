@@ -1,8 +1,10 @@
 name: lint
 on: push
 jobs:
-  my-job:
+  lint-job:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v3
       - name: activate linter
         run: make lint
