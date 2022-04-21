@@ -23,6 +23,7 @@ export default () => {
         return false;
       }
       numIsPrime(divisor + 1, number);
+      return true;
     };
     const gameCorrectAnswer = (numIsPrime(2, gameQuestion)) ? 'yes' : 'no';
 
