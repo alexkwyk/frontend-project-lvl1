@@ -1,7 +1,7 @@
 import Greeting from '../cli.js';
 import gameRound from '../index.js';
 
-const startEvenGame = () => {
+export default () => {
   const username = Greeting();
 
   console.log('Answer "yes" if the number is even, otherwise answer "no".');
@@ -23,5 +23,3 @@ const startEvenGame = () => {
 
   evenGameRound(0);
 };
-
-export default startEvenGame;
