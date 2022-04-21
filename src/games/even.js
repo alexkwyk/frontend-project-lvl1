@@ -2,6 +2,7 @@ import fullGame from '../index.js';
 
 export default () => {
   const description = 'Answer "yes" if the number is even, otherwise answer "no".';
+  const getRandomNumber = (min, max) => Math.floor(Math.random() * max) + min;
   const questions = [];
   const answers = [];
 
@@ -9,10 +10,10 @@ export default () => {
     if (count > 2) {
       return;
     }
-    const gameQuestion = Math.floor(Math.random() * 99) + 1;
+    const gameQuestion = getRandomNumber(1, 99);
     const gameCorrectAnswer = (gameQuestion % 2 === 0) ? 'yes' : 'no';
     questions.push(gameQuestion);
-    answers.push(String(gameCorrectAnswer));
+    answers.push(gameCorrectAnswer);
     evenGame(count + 1);
   };
 
