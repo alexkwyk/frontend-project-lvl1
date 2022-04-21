@@ -16,3 +16,5 @@ make install
 [![asciicast](https://asciinema.org/a/489157.svg)](https://asciinema.org/a/489157)
 ### Arithmetic progression
 [![asciicast](https://asciinema.org/a/489161.svg)](https://asciinema.org/a/489161)
+### Prime number
+[![asciicast](https://asciinema.org/a/489166.svg)](https://asciinema.org/a/489166)
