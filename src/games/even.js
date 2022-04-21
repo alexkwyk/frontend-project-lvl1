@@ -1,10 +1,11 @@
 import readlineSync from 'readline-sync';
-import Greeting from '../cli.js';
 
 export default () => {
-  const username = Greeting();
+  console.log('Welcome to the Brain Games!');
+  const username = readlineSync.question('May I have your name? ');
+  console.log(`Hello, ${username}!`);
 
-  const getRandomNum = () => Math.floor(Math.random() * 100);
+  const getRandomNum = () => Math.floor(Math.random() * 99) + 1;
 
   const gameQuestion = (count) => {
     if (count > 2) {
