@@ -3,8 +3,12 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/maintainability)](https://codeclimate.com/github/codeclimate/codeclimate/maintainability)
 [![lint](https://github.com/alexkwyk/frontend-project-lvl1/actions/workflows/lint.yml/badge.svg)](https://github.com/alexkwyk/frontend-project-lvl1/actions/workflows/lint.yml)
 
-# Game demonstration:
-## Even numbers
+## Install
+```
+make install
+```
+## Game demonstration:
+### Even numbers
 [![asciicast](https://asciinema.org/a/489042.svg)](https://asciinema.org/a/489042)
-## Calculator
+### Calculator
 [![asciicast](https://asciinema.org/a/489110.svg)](https://asciinema.org/a/489110)
