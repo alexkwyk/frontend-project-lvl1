@@ -16,7 +16,6 @@ export default () => {
     const gameQuestion = getRandomNumber(2, 99);
 
     const numIsPrime = (divisor, number) => {
-      console.log('num', number, 'div', divisor);
       if (divisor === number) {
         return true;
       }
