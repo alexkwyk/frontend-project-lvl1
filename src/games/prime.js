@@ -16,14 +16,14 @@ export default () => {
     const gameQuestion = getRandomNumber(2, 99);
 
     const numIsPrime = (divisor, number) => {
-      if (divisor > number) {
+      console.log('num', number, 'div', divisor);
+      if (divisor === number) {
         return true;
       }
       if (number % divisor === 0) {
         return false;
       }
       numIsPrime(divisor + 1, number);
-      return true;
     };
     const gameCorrectAnswer = (numIsPrime(2, gameQuestion)) ? 'yes' : 'no';
 
