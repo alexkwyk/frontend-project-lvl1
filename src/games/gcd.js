@@ -1,22 +1,20 @@
-import Greeting from '../cli.js';
-import gameRound from '../index.js';
+import fullGame from '../index.js';
 
 export default () => {
-  const username = Greeting();
-
-  console.log('Find the greatest common divisor of given numbers.');
+  const description = 'Find the greatest common divisor of given numbers.';
 
   const getRandomNumber = (min, max) => Math.floor(Math.random() * max) + min;
-
-  const gcdGameRound = (count) => {
+  const questions = [];
+  const answers = [];
+  const gcdGame = (count) => {
     if (count > 2) {
-      console.log(`Congratulations, ${username}!`);
       return;
     }
     let a = getRandomNumber(1, 99);
     let b = getRandomNumber(1, 99);
 
     let gameCorrectAnswer;
+
     const findAnswer = (num) => {
       if (num > 99) {
         if (gameCorrectAnswer === undefined) {
@@ -32,14 +30,14 @@ export default () => {
       }
       findAnswer(num + 1);
     };
-    findAnswer(2);
 
+    findAnswer(2);
     const gameQuestion = `${a} ${b}`;
-    const gameResult = gameRound(gameQuestion, String(gameCorrectAnswer));
-    if (gameResult === true) {
-      gcdGameRound(count + 1);
-    }
+    questions.push(gameQuestion);
+    answers.push(String(gameCorrectAnswer));
+    gcdGame(count + 1);
   };
 
-  gcdGameRound(0);
+  gcdGame(0);
+  fullGame(questions, answers, description);
 };

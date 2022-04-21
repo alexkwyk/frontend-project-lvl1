@@ -1,16 +1,15 @@
-import Greeting from '../cli.js';
-import gameRound from '../index.js';
+import fullGame from '../index.js';
 
 export default () => {
-  const username = Greeting();
+  const description = 'What is the result of the expression?';
 
-  console.log('What is the result of the expression?');
+  const questions = [];
+  const answers = [];
 
   const getRandomNumber = (min, max) => Math.floor(Math.random() * max) + min;
 
-  const calcGameRound = (count) => {
+  const calcGame = (count) => {
     if (count > 2) {
-      console.log(`Congratulations, ${username}!`);
       return;
     }
     const operatorNumber = getRandomNumber(0, 2);
@@ -35,12 +34,11 @@ export default () => {
         break;
     }
     const gameCorrectAnswer = String(gamePreAnswer);
-    const gameResult = gameRound(gameQuestion, gameCorrectAnswer);
-
-    if (gameResult === true) {
-      calcGameRound(count + 1);
-    }
+    questions.push(gameQuestion);
+    answers.push(gameCorrectAnswer);
+    calcGame(count + 1);
   };
 
-  calcGameRound(0);
+  calcGame(0);
+  fullGame(questions, answers, description);
 };

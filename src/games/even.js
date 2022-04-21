@@ -1,25 +1,21 @@
-import Greeting from '../cli.js';
-import gameRound from '../index.js';
+import fullGame from '../index.js';
 
 export default () => {
-  const username = Greeting();
+  const description = 'Answer "yes" if the number is even, otherwise answer "no".';
+  const questions = [];
+  const answers = [];
 
-  console.log('Answer "yes" if the number is even, otherwise answer "no".');
-
-  const evenGameRound = (count) => {
+  const evenGame = (count) => {
     if (count > 2) {
-      console.log(`Congratulations, ${username}!`);
       return;
     }
-
     const gameQuestion = Math.floor(Math.random() * 99) + 1;
     const gameCorrectAnswer = (gameQuestion % 2 === 0) ? 'yes' : 'no';
-    const gameResult = gameRound(gameQuestion, gameCorrectAnswer);
-
-    if (gameResult === true) {
-      evenGameRound(count + 1);
-    }
+    questions.push(gameQuestion);
+    answers.push(String(gameCorrectAnswer));
+    evenGame(count + 1);
   };
 
-  evenGameRound(0);
+  evenGame(0);
+  fullGame(questions, answers, description);
 };
