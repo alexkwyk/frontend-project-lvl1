@@ -22,10 +22,11 @@ export default () => {
       if (number % divisor === 0) {
         return false;
       }
-      numIsPrime(divisor + 1, number);
-      return true;
+      return numIsPrime(divisor + 1, number);
     };
-    const gameCorrectAnswer = (numIsPrime(2, gameQuestion)) ? 'yes' : 'no';
+    const primeNum = numIsPrime(2, gameQuestion);
+    console.log(primeNum);
+    const gameCorrectAnswer = (primeNum) ? 'yes' : 'no';
 
     questions.push(gameQuestion);
     answers.push(gameCorrectAnswer);
