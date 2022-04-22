@@ -24,9 +24,8 @@ export default () => {
       }
       return numIsPrime(divisor + 1, number);
     };
-    const primeNum = numIsPrime(2, gameQuestion);
-    console.log(primeNum);
-    const gameCorrectAnswer = (primeNum) ? 'yes' : 'no';
+
+    const gameCorrectAnswer = (numIsPrime(2, gameQuestion)) ? 'yes' : 'no';
 
     questions.push(gameQuestion);
     answers.push(gameCorrectAnswer);
