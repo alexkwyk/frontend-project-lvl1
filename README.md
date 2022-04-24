@@ -1,6 +1,6 @@
 # Brain games
 [![Actions Status](https://github.com/alexkwyk/frontend-project-lvl1/workflows/hexlet-check/badge.svg)](https://github.com/alexkwyk/frontend-project-lvl1/actions)
-[![Maintainability](https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/maintainability)](https://codeclimate.com/github/codeclimate/codeclimate/maintainability)
+[![Maintainability](https://api.codeclimate.com/v1/badges/5a1f8c835cc2fc0ea4ed/maintainability)](https://codeclimate.com/github/alexkwyk/frontend-project-lvl1/maintainability)
 [![lint](https://github.com/alexkwyk/frontend-project-lvl1/actions/workflows/lint.yml/badge.svg)](https://github.com/alexkwyk/frontend-project-lvl1/actions/workflows/lint.yml)
 
 Brain games is package of simple console games.  
