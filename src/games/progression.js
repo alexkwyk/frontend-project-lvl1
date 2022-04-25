@@ -1,4 +1,4 @@
-import fullGame from '../index.js';
+import checkAnswers from '../index.js';
 
 export default () => {
   const description = 'What number is missing in the progression?';
@@ -35,5 +35,5 @@ export default () => {
   };
 
   progressionGame(0);
-  fullGame(questions, answers, description);
+  checkAnswers(questions, answers, description);
 };

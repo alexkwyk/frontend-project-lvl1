@@ -1,4 +1,4 @@
-import fullGame from '../index.js';
+import checkAnswers from '../index.js';
 
 export default () => {
   const description = 'What is the result of the expression?';
@@ -40,5 +40,5 @@ export default () => {
   };
 
   calcGame(0);
-  fullGame(questions, answers, description);
+  checkAnswers(questions, answers, description);
 };
