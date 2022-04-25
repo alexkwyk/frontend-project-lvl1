@@ -1,44 +1,37 @@
-import checkAnswers from '../index.js';
+import checkAnswers, { gameCount } from '../index.js';
+import getRandomNumber from '../utils.js';
+
+const description = 'What is the result of the expression?';
 
 export default () => {
-  const description = 'What is the result of the expression?';
-
   const questions = [];
   const answers = [];
 
-  const getRandomNumber = (min, max) => Math.floor(Math.random() * max) + min;
-
-  const calcGame = (count) => {
-    if (count > 2) {
-      return;
-    }
+  for (let i = 0; i < gameCount; i += 1) {
     const operatorNumber = getRandomNumber(0, 2);
     const a = getRandomNumber(1, 99);
     const b = getRandomNumber(1, 99);
     let gameQuestion;
-    let gamePreAnswer;
+    let gameCorrectAnswer;
     switch (operatorNumber) {
       case 0:
         gameQuestion = `${a} + ${b}`;
-        gamePreAnswer = a + b;
+        gameCorrectAnswer = a + b;
         break;
       case 1:
         gameQuestion = `${a} - ${b}`;
-        gamePreAnswer = a - b;
+        gameCorrectAnswer = a - b;
         break;
       case 2:
         gameQuestion = `${a} * ${b}`;
-        gamePreAnswer = a * b;
+        gameCorrectAnswer = a * b;
         break;
       default:
         break;
     }
-    const gameCorrectAnswer = String(gamePreAnswer);
     questions.push(gameQuestion);
-    answers.push(gameCorrectAnswer);
-    calcGame(count + 1);
-  };
+    answers.push(String(gameCorrectAnswer));
+  }
 
-  calcGame(0);
   checkAnswers(questions, answers, description);
 };
