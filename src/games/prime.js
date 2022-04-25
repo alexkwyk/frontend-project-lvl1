@@ -1,9 +1,8 @@
-import checkAnswers from '../index.js';
+import checkAnswers, { gameCount } from '../index.js';
+import getRandomNumber from '../utils.js';
 
 export default () => {
   const description = 'Answer "yes" if the number is prime, otherwise answer "no".';
-
-  const getRandomNumber = (min, max) => Math.floor(Math.random() * max) + min;
 
   const questions = [];
   const answers = [];

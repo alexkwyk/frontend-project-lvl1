@@ -1,11 +1,12 @@
-import checkAnswers from '../index.js';
+import checkAnswers, { gameCount } from '../index.js';
+import getRandomNumber from '../utils.js';
 
 export default () => {
   const description = 'Find the greatest common divisor of given numbers.';
 
-  const getRandomNumber = (min, max) => Math.floor(Math.random() * max) + min;
   const questions = [];
   const answers = [];
+
   const gcdGame = (count) => {
     if (count > 2) {
       return;

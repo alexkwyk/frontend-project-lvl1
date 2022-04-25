@@ -1,11 +1,12 @@
-import checkAnswers from '../index.js';
+import checkAnswers, { gameCount } from '../index.js';
+import getRandomNumber from '../utils.js';
 
 export default () => {
   const description = 'What number is missing in the progression?';
 
-  const getRandomNumber = (min, max) => Math.floor(Math.random() * max) + min;
   const questions = [];
   const answers = [];
+
   const progressionGame = (count) => {
     if (count > 2) {
       return;
