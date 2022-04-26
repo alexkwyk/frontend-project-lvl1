@@ -1,40 +1,44 @@
 import checkAnswers, { gameCount } from '../index.js';
 import getRandomNumber from '../utils.js';
 
-export default () => {
-  const description = 'What number is missing in the progression?';
+const description = 'What number is missing in the progression?';
 
+const getNumbers = (maxcount) => {
+  const firstNum = getRandomNumber(5, 15);
+  const result = [firstNum];
+  const numStep = getRandomNumber(2, 6);
+  for (let i = 1; i < maxcount; i += 1) {
+    result.push(result[i - 1] + numStep);
+  }
+  return result;
+};
+
+const getAnswer = (coll) => {
+  const randomElementIndex = getRandomNumber(1, coll.length - 1);
+  const answer = coll[randomElementIndex];
+  return answer;
+};
+
+const hideItem = (coll, item) => {
+  const result = [...coll];
+  const answerIndex = result.indexOf(item);
+  result[answerIndex] = '..';
+  return result;
+};
+
+export default () => {
   const questions = [];
   const answers = [];
 
-  const progressionGame = (count) => {
-    if (count > 2) {
-      return;
-    }
-
-    const questionNumArr = [getRandomNumber(5, 15)];
-    const numStep = getRandomNumber(2, 6);
-    const generateNumbers = (i, maxcount) => {
-      if (i > maxcount - 1) {
-        return;
-      }
-      questionNumArr[i] = questionNumArr[i - 1] + numStep;
-      generateNumbers(i + 1, maxcount);
-    };
-    generateNumbers(1, getRandomNumber(5, 10));
-
-    const randomElementIndex = getRandomNumber(1, questionNumArr.length - 1);
-    const correctAnswer = questionNumArr[randomElementIndex];
-    questionNumArr[randomElementIndex] = '..';
-
-    const gameQuestion = questionNumArr.join(' ');
-
+  for (let i = 0; i < gameCount; i += 1) {
+    const progressionLength = getRandomNumber(5, 10);
+    const Numbers = getNumbers(progressionLength);
+    const correctAnswer = getAnswer(Numbers);
+    const questionNumbers = hideItem(Numbers, correctAnswer);
+    const gameQuestion = questionNumbers.join(' ');
     questions.push(gameQuestion);
     answers.push(String(correctAnswer));
+  }
 
-    progressionGame(count + 1);
-  };
-
-  progressionGame(0);
   checkAnswers(questions, answers, description);
 };
