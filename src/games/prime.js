@@ -14,15 +14,13 @@ const isPrime = (num) => {
   return result;
 };
 
-const getAnswer = (num) => (isPrime(num) ? 'yes' : 'no');
-
 export default () => {
   const questions = [];
   const answers = [];
 
   for (let i = 0; i < gameCount; i += 1) {
     const gameQuestion = getRandomNumber(2, 99);
-    const gameCorrectAnswer = getAnswer(gameQuestion);
+    const gameCorrectAnswer = isPrime(gameQuestion) ? 'yes' : 'no';
     questions.push(gameQuestion);
     answers.push(gameCorrectAnswer);
   }
