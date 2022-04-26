@@ -16,8 +16,8 @@ const calcGCD = (a, b) => {
 const getCorrectNumbers = () => {
   let num1 = getRandomNumber(1, 99);
   let num2 = getRandomNumber(1, 99);
-  const checkAnswer = calcGCD(num1, num2) === 0;
-  if (checkAnswer === true) {
+  const isHaveDiv = calcGCD(num1, num2) !== 0;
+  if (isHaveDiv === false) {
     num1 = getRandomNumber(1, 99);
     num2 = getRandomNumber(1, 99);
     return getCorrectNumbers(num1, num2);
