@@ -13,28 +13,26 @@ const calcGCD = (a, b) => {
   return result;
 };
 
-const getCorrectNumbers = () => {
+const getNumbersWithDiv = () => {
   let num1 = getRandomNumber(1, 99);
   let num2 = getRandomNumber(1, 99);
   const isHaveDiv = calcGCD(num1, num2) !== 0;
   if (isHaveDiv === false) {
     num1 = getRandomNumber(1, 99);
     num2 = getRandomNumber(1, 99);
-    return getCorrectNumbers(num1, num2);
+    return getNumbersWithDiv(num1, num2);
   }
   return [num1, num2];
 };
 
 export default () => {
-  const questions = [];
-  const answers = [];
+  const data = [];
 
   for (let i = 0; i < gameCount; i += 1) {
-    const Numbers = getCorrectNumbers();
-    const gameQuestion = `${Numbers[0]} ${Numbers[1]}`;
-    const gameCorrectAnswer = calcGCD(Numbers[0], Numbers[1]);
-    questions.push(gameQuestion);
-    answers.push(String(gameCorrectAnswer));
+    const [firstNumber, secondNumber] = getNumbersWithDiv();
+    const answer = calcGCD(firstNumber, secondNumber);
+    const question = `${firstNumber} ${secondNumber}`;
+    data.push([question, answer]);
   }
-  checkAnswers(questions, answers, description);
+  checkAnswers(data, description);
 };

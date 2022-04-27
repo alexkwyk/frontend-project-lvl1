@@ -4,26 +4,21 @@ import getRandomNumber from '../utils.js';
 const description = 'Answer "yes" if the number is prime, otherwise answer "no".';
 
 const isPrime = (num) => {
-  let result = true;
   for (let div = 2; div < num; div += 1) {
     if (num % div === 0) {
-      result = false;
-      break;
+      return false;
     }
   }
-  return result;
+  return true;
 };
 
 export default () => {
-  const questions = [];
-  const answers = [];
-
+  const data = [];
   for (let i = 0; i < gameCount; i += 1) {
-    const gameQuestion = getRandomNumber(2, 99);
-    const gameCorrectAnswer = isPrime(gameQuestion) ? 'yes' : 'no';
-    questions.push(gameQuestion);
-    answers.push(gameCorrectAnswer);
+    const question = getRandomNumber(2, 99);
+    const answer = isPrime(question) ? 'yes' : 'no';
+    data.push([question, answer]);
   }
 
-  checkAnswers(questions, answers, description);
+  checkAnswers(data, description);
 };

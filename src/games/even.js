@@ -6,14 +6,12 @@ const description = 'Answer "yes" if the number is even, otherwise answer "no".'
 const isEven = (num) => num % 2 === 0;
 
 export default () => {
-  const questions = [];
-  const answers = [];
+  const data = [];
 
   for (let i = 0; i < gameCount; i += 1) {
-    const gameQuestion = getRandomNumber(1, 99);
-    const gameCorrectAnswer = isEven(gameQuestion) ? 'yes' : 'no';
-    questions.push(gameQuestion);
-    answers.push(gameCorrectAnswer);
+    const question = getRandomNumber(1, 99);
+    const answer = isEven(question) ? 'yes' : 'no';
+    data.push([question, answer]);
   }
-  checkAnswers(questions, answers, description);
+  checkAnswers(data, description);
 };

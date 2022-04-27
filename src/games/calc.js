@@ -3,34 +3,31 @@ import getRandomNumber from '../utils.js';
 
 const description = 'What is the result of the expression?';
 
-const calculate = (a, b, operator) => {
+const calcRandomOperation = (a, b) => {
+  const operators = ['+', '-', '*'];
+  const operator = operators[getRandomNumber(0, 2)];
   switch (operator) {
     case '+':
-      return a + b;
+      return [a + b, operator];
     case '-':
-      return a - b;
+      return [a - b, operator];
     case '*':
-      return a * b;
+      return [a * b, operator];
     default:
       return console.log(`Error: invalid operator '${operator}'(calc.js).`);
   }
 };
 
 export default () => {
-  const questions = [];
-  const answers = [];
-
-  const operators = ['+', '-', '*'];
+  const data = [];
 
   for (let i = 0; i < gameCount; i += 1) {
-    const operator = operators[getRandomNumber(0, 2)];
-    const firstNum = getRandomNumber(1, 99);
-    const secondNum = getRandomNumber(1, 99);
-    const gameQuestion = `${firstNum} ${operator} ${secondNum}`;
-    const gameCorrectAnswer = calculate(firstNum, secondNum, operator);
-    questions.push(gameQuestion);
-    answers.push(String(gameCorrectAnswer));
+    const firstNumber = getRandomNumber(1, 99);
+    const secondNumber = getRandomNumber(1, 99);
+    const [answer, operator] = calcRandomOperation(firstNumber, secondNumber);
+    const question = `${firstNumber} ${operator} ${secondNumber}`;
+    data.push([question, answer]);
   }
 
-  checkAnswers(questions, answers, description);
+  checkAnswers(data, description);
 };
