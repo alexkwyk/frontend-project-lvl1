@@ -4,21 +4,16 @@ import getRandomNumber from '../utils.js';
 const description = 'What is the result of the expression?';
 
 const calculate = (a, b, operator) => {
-  let result = 0;
   switch (operator) {
     case '+':
-      result = a + b;
-      break;
+      return a + b;
     case '-':
-      result = a - b;
-      break;
+      return a - b;
     case '*':
-      result = a * b;
-      break;
+      return a * b;
     default:
-      break;
+      return console.log(`Error: invalid operator '${operator}'(calc.js).`);
   }
-  return result;
 };
 
 export default () => {
