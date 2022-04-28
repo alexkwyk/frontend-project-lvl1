@@ -1,4 +1,4 @@
-import checkAnswers, { gameCount } from '../index.js';
+import startEngine from '../index.js';
 import getRandomNumber from '../utils.js';
 
 const description = 'What number is missing in the progression?';
@@ -21,19 +21,19 @@ const hideItem = (coll, item) => {
   return result.join(' ');
 };
 
-const getAnswer = (coll) => {
+const getRandomItem = (coll) => {
   const randomElementIndex = getRandomNumber(1, coll.length - 1);
   const answer = coll[randomElementIndex];
   return answer;
 };
 
+const getGameValues = () => {
+  const progression = generateProgression();
+  const answer = getRandomItem(progression);
+  const question = hideItem(progression, answer);
+  return [question, answer];
+};
+
 export default () => {
-  const data = [];
-  for (let i = 0; i < gameCount; i += 1) {
-    const progression = generateProgression();
-    const answer = getAnswer(progression);
-    const question = hideItem(progression, answer);
-    data.push([question, answer]);
-  }
-  checkAnswers(data, description);
+  startEngine(getGameValues, description);
 };
