@@ -18,7 +18,8 @@ const calculateOperation = (a, b, operator) => {
 
 const generateRandomOperator = () => {
   const operators = ['+', '-', '*'];
-  return getRandomNumber(0, (operators.length - 1));
+  const operator = operators[getRandomNumber(0, (operators.length - 1))];
+  return operator;
 };
 
 const getGameValues = () => {
