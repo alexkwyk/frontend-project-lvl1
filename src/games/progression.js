@@ -11,12 +11,6 @@ const generateProgression = (firstElement, progressionStep, progressionLength) =
   return result;
 };
 
-const getRandomElement = (coll) => {
-  const randomElementIndex = getRandomNumber(1, coll.length - 1);
-  const answer = coll[randomElementIndex];
-  return answer;
-};
-
 const hideElement = (coll, item) => {
   const result = [...coll];
   const answerIndex = result.indexOf(item);
@@ -29,7 +23,8 @@ const getGameValues = () => {
   const progressionStep = getRandomNumber(2, 6);
   const progressionLength = getRandomNumber(5, 10);
   const progression = generateProgression(firstElement, progressionStep, progressionLength);
-  const answer = getRandomElement(progression);
+  const randomElementIndex = getRandomNumber(1, progression.length - 1);
+  const answer = progression[randomElementIndex];
   const question = hideElement(progression, answer);
   return [question, answer];
 };
