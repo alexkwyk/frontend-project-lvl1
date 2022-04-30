@@ -8,7 +8,7 @@ const isPrimeNumber = (num) => {
   if (absoluteNumber === 1) {
     return false;
   }
-  for (let div = 2; div < absoluteNumber / 2; div += 1) {
+  for (let div = 2; div < absoluteNumber; div += 1) {
     if (absoluteNumber % div === 0) {
       return false;
     }
