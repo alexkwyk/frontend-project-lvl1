@@ -13,26 +13,13 @@ const calcGCD = (a, b) => {
   return result;
 };
 
-const isHaveCommonDivisor = (num1, num2) => calcGCD(num1, num2) !== 0;
-
-const generateNumbersWithCommonDivisor = () => {
-  const num1 = getRandomNumber(1, 99);
-  const num2 = getRandomNumber(1, 99);
-
-  const checkNumbersToHaveCommonDivisor = (a, b) => {
-    if (isHaveCommonDivisor(a, b) === false) {
-      const newNum1 = getRandomNumber(1, 99);
-      const newNum2 = getRandomNumber(1, 99);
-      return checkNumbersToHaveCommonDivisor(newNum1, newNum2);
-    }
-    return [a, b];
-  };
-
-  return checkNumbersToHaveCommonDivisor(num1, num2);
-};
-
 const getGameValues = () => {
-  const [firstNumber, secondNumber] = generateNumbersWithCommonDivisor();
+  const firstNumber = getRandomNumber(1, 99);
+  const secondNumber = getRandomNumber(1, 99);
+  const isHaveCommonDivisor = calcGCD(firstNumber, secondNumber) !== 0;
+  if (isHaveCommonDivisor === false) {
+    return getGameValues();
+  }
   const answer = calcGCD(firstNumber, secondNumber);
   const question = `${firstNumber} ${secondNumber}`;
   return [question, answer];

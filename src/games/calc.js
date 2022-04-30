@@ -16,16 +16,11 @@ const calculateOperation = (a, b, operator) => {
   }
 };
 
-const generateRandomOperator = () => {
-  const operators = ['+', '-', '*'];
-  const operator = operators[getRandomNumber(0, (operators.length - 1))];
-  return operator;
-};
-
 const getGameValues = () => {
   const firstNumber = getRandomNumber(1, 99);
   const secondNumber = getRandomNumber(1, 99);
-  const operator = generateRandomOperator();
+  const operators = ['+', '-', '*'];
+  const operator = operators[getRandomNumber(0, (operators.length - 1))];
   const question = `${firstNumber} ${operator} ${secondNumber}`;
   const answer = calculateOperation(firstNumber, secondNumber, operator);
   return [question, answer];

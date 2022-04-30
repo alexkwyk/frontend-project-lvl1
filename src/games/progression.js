@@ -3,34 +3,34 @@ import getRandomNumber from '../utils.js';
 
 const description = 'What number is missing in the progression?';
 
-const generateProgression = () => {
-  const progressionLength = getRandomNumber(5, 10);
-  const firstNum = getRandomNumber(5, 15);
-  const result = [firstNum];
-  const numStep = getRandomNumber(2, 6);
+const generateProgression = (firstElement, progressionStep, progressionLength) => {
+  const result = [firstElement];
   for (let i = 1; i < progressionLength; i += 1) {
-    result.push(result[i - 1] + numStep);
+    result.push(result[i - 1] + progressionStep);
   }
   return result;
 };
 
-const hideItem = (coll, item) => {
+const getRandomElement = (coll) => {
+  const randomElementIndex = getRandomNumber(1, coll.length - 1);
+  const answer = coll[randomElementIndex];
+  return answer;
+};
+
+const hideElement = (coll, item) => {
   const result = [...coll];
   const answerIndex = result.indexOf(item);
   result[answerIndex] = '..';
   return result.join(' ');
 };
 
-const getRandomItem = (coll) => {
-  const randomElementIndex = getRandomNumber(1, coll.length - 1);
-  const answer = coll[randomElementIndex];
-  return answer;
-};
-
 const getGameValues = () => {
-  const progression = generateProgression();
-  const answer = getRandomItem(progression);
-  const question = hideItem(progression, answer);
+  const firstElement = getRandomNumber(5, 15);
+  const progressionStep = getRandomNumber(2, 6);
+  const progressionLength = getRandomNumber(5, 10);
+  const progression = generateProgression(firstElement, progressionStep, progressionLength);
+  const answer = getRandomElement(progression);
+  const question = hideElement(progression, answer);
   return [question, answer];
 };
 
