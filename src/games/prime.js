@@ -16,12 +16,12 @@ const isPrimeNumber = (num) => {
   return true;
 };
 
-const getGameValues = () => {
+const getRound = () => {
   const question = getRandomNumber(1, 99);
   const answer = isPrimeNumber(question) ? 'yes' : 'no';
   return [question, answer];
 };
 
 export default () => {
-  startEngine(getGameValues, description);
+  startEngine(getRound, description);
 };

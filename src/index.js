@@ -1,16 +1,15 @@
 import readlineSync from 'readline-sync';
 
-export const gameCount = 3;
+export const roundsCount = 3;
 
-export default (getGameValues, description) => {
+export default (getRound, description) => {
   console.log('Welcome to the Brain Games!');
   const userName = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${userName}!`);
   console.log(`${description}`);
 
-  for (let gameRound = 0; gameRound < gameCount; gameRound += 1) {
-    const values = getGameValues();
-    const [question, correctAnswer] = values;
+  for (let gameRound = 0; gameRound < roundsCount; gameRound += 1) {
+    const [question, correctAnswer] = getRound();
     console.log(`Question: ${question}`);
     const userAnswer = readlineSync.question('Your answer: ');
     const isAnswerCorrect = (userAnswer.toLowerCase() === String(correctAnswer));

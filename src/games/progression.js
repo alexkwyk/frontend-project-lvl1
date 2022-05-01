@@ -18,7 +18,7 @@ const hideElement = (coll, item) => {
   return result.join(' ');
 };
 
-const getGameValues = () => {
+const getRound = () => {
   const firstElement = getRandomNumber(5, 15);
   const progressionStep = getRandomNumber(2, 6);
   const progressionLength = getRandomNumber(5, 10);
@@ -30,5 +30,5 @@ const getGameValues = () => {
 };
 
 export default () => {
-  startEngine(getGameValues, description);
+  startEngine(getRound, description);
 };

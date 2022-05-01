@@ -16,7 +16,7 @@ const calculateOperation = (a, b, operator) => {
   }
 };
 
-const getGameValues = () => {
+const getRound = () => {
   const firstNumber = getRandomNumber(1, 99);
   const secondNumber = getRandomNumber(1, 99);
   const operators = ['+', '-', '*'];
@@ -27,5 +27,5 @@ const getGameValues = () => {
 };
 
 export default () => {
-  startEngine(getGameValues, description);
+  startEngine(getRound, description);
 };
