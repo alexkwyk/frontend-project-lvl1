@@ -3,13 +3,12 @@ import getRandomNumber from '../utils.js';
 
 const description = 'Answer "yes" if the number is prime, otherwise answer "no".';
 
-const isPrimeNumber = (num) => {
-  const absoluteNumber = Math.abs(num);
-  if (absoluteNumber === 1) {
+const isPrime = (number) => {
+  if (number < 2) {
     return false;
   }
-  for (let div = 2; div < absoluteNumber; div += 1) {
-    if (absoluteNumber % div === 0) {
+  for (let divisor = 2; divisor < number; divisor += 1) {
+    if (number % divisor === 0) {
       return false;
     }
   }
@@ -17,8 +16,8 @@ const isPrimeNumber = (num) => {
 };
 
 const getRound = () => {
-  const question = getRandomNumber(1, 99);
-  const answer = isPrimeNumber(question) ? 'yes' : 'no';
+  const question = getRandomNumber(1, 100);
+  const answer = isPrime(question) ? 'yes' : 'no';
   return [question, answer];
 };
 
