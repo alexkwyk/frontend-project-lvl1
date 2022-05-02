@@ -20,7 +20,8 @@ const getRound = () => {
   const firstNumber = getRandomNumber(1, 99);
   const secondNumber = getRandomNumber(1, 99);
   const operators = ['+', '-', '*'];
-  const operator = operators[getRandomNumber(0, (operators.length - 1))];
+  const randomOperatorIndex = getRandomNumber(0, (operators.length - 1));
+  const operator = operators[randomOperatorIndex];
   const question = `${firstNumber} ${operator} ${secondNumber}`;
   const answer = calculateOperation(firstNumber, secondNumber, operator);
   return [question, answer];
