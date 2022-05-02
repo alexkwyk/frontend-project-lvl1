@@ -3,19 +3,18 @@ import getRandomNumber from '../utils.js';
 
 const description = 'What number is missing in the progression?';
 
-const generateProgression = (firstElement, progressionStep, progressionLength) => {
+const generateProgression = (firstElement, step, length) => {
   const result = [firstElement];
-  for (let i = 1; i < progressionLength; i += 1) {
-    result.push(result[i - 1] + progressionStep);
+  for (let i = 1; i < length; i += 1) {
+    result.push(result[i - 1] + step);
   }
   return result;
 };
 
-const hideElement = (coll, item) => {
+const hideElementByIndex = (coll, index) => {
   const result = [...coll];
-  const answerIndex = result.indexOf(item);
-  result[answerIndex] = '..';
-  return result.join(' ');
+  result[index] = '..';
+  return result;
 };
 
 const getRound = () => {
@@ -23,9 +22,9 @@ const getRound = () => {
   const progressionStep = getRandomNumber(2, 6);
   const progressionLength = getRandomNumber(5, 10);
   const progression = generateProgression(firstElement, progressionStep, progressionLength);
-  const randomElementIndex = getRandomNumber(1, progression.length - 1);
-  const answer = progression[randomElementIndex];
-  const question = hideElement(progression, answer);
+  const answerIndex = getRandomNumber(1, progression.length - 1);
+  const answer = progression[answerIndex];
+  const question = hideElementByIndex(progression, answerIndex).join(' ');
   return [question, answer];
 };
 
