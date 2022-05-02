@@ -3,11 +3,11 @@ import getRandomNumber from '../utils.js';
 
 const description = 'Answer "yes" if the number is even, otherwise answer "no".';
 
-const isEvenNumber = (num) => num % 2 === 0;
+const isEven = (number) => number % 2 === 0;
 
 const getRound = () => {
   const question = getRandomNumber(1, 99);
-  const answer = isEvenNumber(question) ? 'yes' : 'no';
+  const answer = isEven(question) ? 'yes' : 'no';
   return [question, answer];
 };
 
