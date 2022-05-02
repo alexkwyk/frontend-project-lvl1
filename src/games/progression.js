@@ -11,12 +11,6 @@ const generateProgression = (firstElement, step, length) => {
   return result;
 };
 
-const hideElementByIndex = (coll, index) => {
-  const result = [...coll];
-  result[index] = '..';
-  return result;
-};
-
 const getRound = () => {
   const firstElement = getRandomNumber(5, 15);
   const progressionStep = getRandomNumber(2, 6);
@@ -24,7 +18,8 @@ const getRound = () => {
   const progression = generateProgression(firstElement, progressionStep, progressionLength);
   const answerIndex = getRandomNumber(1, progression.length - 1);
   const answer = progression[answerIndex];
-  const question = hideElementByIndex(progression, answerIndex).join(' ');
+  progression[answerIndex] = '..';
+  const question = progression.join(' ');
   return [question, answer];
 };
 
